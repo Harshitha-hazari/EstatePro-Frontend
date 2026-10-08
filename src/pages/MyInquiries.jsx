@@ -17,8 +17,8 @@ function MyInquiries() {
     }
 
     Promise.all([
-      axios.get("http://localhost:8080/api/inquiries"),
-      axios.get("http://localhost:8080/api/properties")
+      axios.get(`${import.meta.env.VITE_API_URL}/api/inquiries`),
+      axios.get(`${import.meta.env.VITE_API_URL}/api/properties`)
     ])
       .then(([inquiryResponse, propertyResponse]) => {
         const userInquiries =

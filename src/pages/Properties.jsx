@@ -12,7 +12,7 @@ function Properties() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/properties")
+     .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => {
         setProperties(response.data);
       })

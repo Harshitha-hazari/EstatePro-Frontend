@@ -24,17 +24,17 @@ function AdminDashboard() {
 
   const loadData = () => {
     axios
-      .get("http://localhost:8080/api/users")
+      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => setUsers(response.data))
       .catch((error) => console.error(error));
 
     axios
-      .get("http://localhost:8080/api/properties")
+      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => setProperties(response.data))
       .catch((error) => console.error(error));
 
     axios
-      .get("http://localhost:8080/api/inquiries")
+      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => setInquiries(response.data))
       .catch((error) => console.error(error));
   };
@@ -86,10 +86,11 @@ function AdminDashboard() {
     if (editingPropertyId !== null) {
       axios
         .put(
-          "http://localhost:8080/api/properties/" +
-            editingPropertyId,
+          `${import.meta.env.VITE_API_URL}/api/properties/${editingPropertyId}`,
           propertyData
         )
+
+        
         .then(() => {
           alert("Property updated successfully!");
           resetPropertyForm();

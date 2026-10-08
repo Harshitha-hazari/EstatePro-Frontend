@@ -14,7 +14,7 @@ function Favorites() {
       JSON.parse(localStorage.getItem("favorites")) || [];
 
     axios
-      .get("http://localhost:8080/api/properties")
+      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => {
         const favoriteProperties =
           response.data.filter((property) =>

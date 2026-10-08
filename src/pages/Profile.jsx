@@ -27,7 +27,7 @@ function Profile() {
 
     axios
       .put(
-        `http://localhost:8080/api/users/${user.id}`,
+        `${import.meta.env.VITE_API_URL}/api/users/${user.id}`,
         user
       )
       .then((response) => {

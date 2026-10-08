@@ -30,7 +30,7 @@ function Register() {
     setMessage("");
 
     axios
-      .post("http://localhost:8080/api/users", user)
+      .post(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => {
         console.log(response.data);
 

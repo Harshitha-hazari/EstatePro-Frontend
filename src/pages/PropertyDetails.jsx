@@ -11,7 +11,7 @@ function PropertyDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/properties/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then((response) => {
         setProperty(response.data);
       })
