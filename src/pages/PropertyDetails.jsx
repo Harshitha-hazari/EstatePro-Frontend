@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import.meta.env.VITE_API_URL
 
 function PropertyDetails() {
   const { id } = useParams();
@@ -65,7 +66,7 @@ function PropertyDetails() {
 
     axios
       .post(
-        "http://localhost:8080/api/inquiries",
+        "https://estatepro-backend-6u7h.onrender.com/api/inquiries",
         inquiry
       )
       .then(() => {

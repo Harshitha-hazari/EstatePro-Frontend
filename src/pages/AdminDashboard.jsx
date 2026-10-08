@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import.meta.env.VITE_API_URL
 
 function AdminDashboard() {
   const [users, setUsers] = useState([]);

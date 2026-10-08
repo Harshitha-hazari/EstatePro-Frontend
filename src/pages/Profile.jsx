@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import.meta.env.VITE_API_URL
 
 function Profile() {
   const [user, setUser] = useState(null);

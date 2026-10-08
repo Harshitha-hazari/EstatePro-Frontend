@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import.meta.env.VITE_API_URL
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ function Login() {
     setMessage("");
 
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
+      .get(`${import.meta.env.VITE_API_URL}/api/users/email/${email}`)
       .then((response) => {
         const users = response.data;
 
