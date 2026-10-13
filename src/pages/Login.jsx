@@ -44,9 +44,22 @@ function Login() {
         }
       })
       .catch((error) => {
-        console.error(error);
-        setMessage("Unable to connect to the server.");
-      })
+  console.error("Login error:", error);
+
+  if (error.response) {
+    setMessage(
+      `Server error: ${error.response.status} - ${
+        error.response.data?.message || "Request failed"
+      }`
+    );
+  } else if (error.request) {
+    setMessage(
+      "No response from server. Check API URL or CORS settings."
+    );
+  } else {
+    setMessage(error.message);
+  }
+})
       .finally(() => {
         setLoading(false);
       });
