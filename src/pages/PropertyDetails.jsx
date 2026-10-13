@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import.meta.env.VITE_API_URL
 
 function PropertyDetails() {
   const { id } = useParams();
@@ -12,7 +11,7 @@ function PropertyDetails() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
+      .get(`${import.meta.env.VITE_API_URL}/api/properties/${id}`)
       .then((response) => {
         setProperty(response.data);
       })
@@ -66,7 +65,7 @@ function PropertyDetails() {
 
     axios
       .post(
-        "https://estatepro-backend-6u7h.onrender.com/api/inquiries",
+        `${import.meta.env.VITE_API_URL}/api/inquiries`,
         inquiry
       )
       .then(() => {

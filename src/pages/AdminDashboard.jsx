@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import.meta.env.VITE_API_URL
 
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
@@ -25,7 +24,7 @@ function AdminDashboard() {
 
   const loadData = () => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
+      .get(`${import.meta.env.VITE_API_URL}/api/users`)
       .then((response) => setUsers(response.data))
       .catch((error) => console.error(error));
 
@@ -35,7 +34,7 @@ function AdminDashboard() {
       .catch((error) => console.error(error));
 
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/properties`)
+      .get(`${import.meta.env.VITE_API_URL}/api/inquiries`)
       .then((response) => setInquiries(response.data))
       .catch((error) => console.error(error));
   };
@@ -104,7 +103,7 @@ function AdminDashboard() {
     } else {
       axios
         .post(
-          "http://localhost:8080/api/properties",
+          `${import.meta.env.VITE_API_URL}/api/properties`,
           propertyData
         )
         .then(() => {
@@ -154,7 +153,7 @@ function AdminDashboard() {
 
     axios
       .delete(
-        "http://localhost:8080/api/properties/" + id
+        `${import.meta.env.VITE_API_URL}/api/properties/` + id
       )
       .then(() => {
         alert("Property deleted successfully!");
@@ -176,7 +175,7 @@ function AdminDashboard() {
     }
 
     axios
-      .delete("http://localhost:8080/api/users/" + id)
+      .delete(`${import.meta.env.VITE_API_URL}/api/users/` + id)
       .then(() => {
         alert("User deleted successfully!");
         loadData();

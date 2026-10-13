@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import.meta.env.VITE_API_URL
 
 function MyInquiries() {
   const [inquiries, setInquiries] = useState([]);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import.meta.env.VITE_API_URL
+
 function Register() {
   const [user, setUser] = useState({
     name: "",
@@ -30,7 +30,7 @@ function Register() {
     setMessage("");
 
     axios
-      .post(`${import.meta.env.VITE_API_URL}/api/properties`)
+      .post(`${import.meta.env.VITE_API_URL}/api/users`, user)
       .then((response) => {
         console.log(response.data);
 
